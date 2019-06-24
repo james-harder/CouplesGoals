@@ -1,0 +1,66 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: 600;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 1.5em;
+}
+
+h3 {
+	font-size: 1.1em;
+}
+
+.goal {
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+	border-radius: 7px;
+
+	padding: 5px;
+	margin: 1.1em auto;
+
+	width: 75%;
+
+	text-align: center;
+
+	background-color: bisque;
+}
+
+.goal-name {
+	margin: 0 30px;
+	background: none;
+}
+
+.goal-complete {
+	width: 15px;
+	height: 15px;
+}
+
+.goal-close {
+	width:15px;
+	height: 15px;
+
+	font-size: 5px;
+}
+
+#new-goal-panel {
+	display: none;
+}
+
+h1 {
+	background-color: aquamarine;
+}

@@ -1,0 +1,14 @@
+C:\Users\jxhar\code\Dot_Net\CouplesGoals.api\bin\Debug\netcoreapp2.2\CouplesGoals.api.deps.json
+C:\Users\jxhar\code\Dot_Net\CouplesGoals.api\bin\Debug\netcoreapp2.2\CouplesGoals.api.runtimeconfig.json
+C:\Users\jxhar\code\Dot_Net\CouplesGoals.api\bin\Debug\netcoreapp2.2\CouplesGoals.api.runtimeconfig.dev.json
+c:\Users\jxhar\code\Dot_Net\CouplesGoals.api\bin\Debug\netcoreapp2.2\CouplesGoals.api.dll
+c:\Users\jxhar\code\Dot_Net\CouplesGoals.api\bin\Debug\netcoreapp2.2\CouplesGoals.api.pdb
+c:\Users\jxhar\code\Dot_Net\CouplesGoals.api\obj\Debug\netcoreapp2.2\CouplesGoals.api.csprojAssemblyReference.cache
+c:\Users\jxhar\code\Dot_Net\CouplesGoals.api\obj\Debug\netcoreapp2.2\CouplesGoals.api.csproj.CoreCompileInputs.cache
+c:\Users\jxhar\code\Dot_Net\CouplesGoals.api\obj\Debug\netcoreapp2.2\CouplesGoals.api.RazorAssemblyInfo.cache
+c:\Users\jxhar\code\Dot_Net\CouplesGoals.api\obj\Debug\netcoreapp2.2\CouplesGoals.api.RazorAssemblyInfo.cs
+c:\Users\jxhar\code\Dot_Net\CouplesGoals.api\obj\Debug\netcoreapp2.2\CouplesGoals.api.AssemblyInfoInputs.cache
+c:\Users\jxhar\code\Dot_Net\CouplesGoals.api\obj\Debug\netcoreapp2.2\CouplesGoals.api.AssemblyInfo.cs
+c:\Users\jxhar\code\Dot_Net\CouplesGoals.api\obj\Debug\netcoreapp2.2\CouplesGoals.api.RazorTargetAssemblyInfo.cache
+c:\Users\jxhar\code\Dot_Net\CouplesGoals.api\obj\Debug\netcoreapp2.2\CouplesGoals.api.dll
+c:\Users\jxhar\code\Dot_Net\CouplesGoals.api\obj\Debug\netcoreapp2.2\CouplesGoals.api.pdb
