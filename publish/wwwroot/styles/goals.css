@@ -57,33 +57,10 @@ h3 {
 	font-size: 5px;
 }
 
-.action-panel {
-	padding: 3px;
-}
-
-.form-panel {
-	padding: 8px;
-	background-color: tan;
-}
-
 #new-goal-panel {
 	display: none;
 }
 
 h1 {
 	background-color: aquamarine;
-}
-
-a {
-	cursor: pointer;
-}
-
-.form-panel > input {
-	border: 2px solid black;
-	padding: 2px;
-}
-
-button {
-	border-style: 2px solid black;
-	padding: 5px;
 }
