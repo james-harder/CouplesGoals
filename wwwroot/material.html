@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<head>
+			<title>Couples Goals. AKA, Let's do this shit!</title>
+			<link href="styles/materialize.css" rel="stylesheet" >
+		</head>
+		<body>
+
+			<div class="row">
+				<div class="col s2"></div>
+				<div class="col s10">
+					<h1>Goals</h1>
+				</div>
+			</div>
+
+			<div id="show-new-goal" class="row">
+				<div class="col s2"></div>
+				<div class="col s10">
+					<a onclick="showNewGoalPanel()">+ Add a new goal.</a>
+				</div>
+			</div>
+
+			<div id="new-goal-panel" class="row hide">
+				<div class="col s2"></div>
+				<div class="col s10">
+					<input type="textfield" placeholder="enter new goal..." id="newGoalName"></input>
+					<button type="button" onclick="addGoal()">Add Goal</button>
+				</div>
+			</div>
+	
+			<section class="container" id="goalSection">
+
+			</section>
+				<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+				<script src="scripts/goals.js" ></script>
+		</body>
+</html>
