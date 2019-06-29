@@ -90,6 +90,9 @@ function showNewGoalPanel() {
 function showGoals() {	// store a reference to the section element
 	var section = document.querySelector('section');
 
+	// clear 'section'
+	section.innerHTML = ' ';
+
 	// store the url that will send us the JSON
 	var requestURL = 'api/goal/';
 
@@ -110,7 +113,7 @@ function showGoals() {	// store a reference to the section element
 		// store the response
 		var goals = request.response;
 
-		console.log(goals[0])
+		console.log(goals)
 
 		// do stuff with it...
 		renderGoals( goals );
