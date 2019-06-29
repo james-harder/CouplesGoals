@@ -22,7 +22,6 @@ function renderGoals( JSONGoals ) {
 		goalCompleted.type = 'checkbox';
 		goalCompleted.id = 'gc' + goal.goalId;
 		goalCompleted.checked = goal.isCompleted;
-		goalCompleted.setAttribute('style', 'opacity: 100');
 
 		var goalName = document.createElement('input');
 		goalName.type = 'textfield';
@@ -32,6 +31,8 @@ function renderGoals( JSONGoals ) {
 		var goalDelete = document.createElement('button');
 		goalDelete.type = 'button';
 		goalDelete.textContent = 'X';
+		goalDelete.value = goal.goalId;
+		goalDelete.setAttribute( 'onclick', 'deleteGoal(this.value)' );
 
 		// add elements to respective 'col' divs
 		gcDiv.appendChild(goalCompleted);
@@ -81,10 +82,19 @@ function addGoal() {
 }
 
 function showNewGoalPanel() {
-	
-	var newGoalPanel = document.getElementById('new-goal-panel');
-	newGoalPanel.setAttribute('class', 'row');
 
+	var newGoalPanel = document.getElementById('new-goal-panel');
+	var panelLink = document.getElementById('panel-link');
+
+	if ( newGoalPanelIsOpen ) {
+		panelLink.innerHTML = '+ add a new goal...';
+		newGoalPanel.setAttribute('class', 'row hide');
+		newGoalPanelIsOpen = false;
+	} else {
+		panelLink.innerHTML = '- add a new goal:';
+		newGoalPanel.setAttribute('class', 'row');
+		newGoalPanelIsOpen = true;
+	}
 }
 
 function showGoals() {	// store a reference to the section element
@@ -120,4 +130,27 @@ function showGoals() {	// store a reference to the section element
 	}
 }
 
+function deleteGoal( goalId ) {
+	
+	// store the url for the delete action
+	var deleteRequestURL = 'api/goal/' + goalId;
+
+	// create an XMLHttpRequest object
+	var deleteRequest = new XMLHttpRequest();
+	
+	// use the request object to open the url using the HTTP GET method
+	deleteRequest.open( 'DELETE', deleteRequestURL );
+
+	// set the content-type to JSON
+	deleteRequest.setRequestHeader('Content-Type', 'application/JSON');
+
+	// send the request
+	deleteRequest.send();
+
+	// reload all goals
+	showGoals();
+}
+
 showGoals();
+
+var newGoalPanelIsOpen = false;
