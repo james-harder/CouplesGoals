@@ -88,11 +88,11 @@ function showNewGoalPanel() {
 
 	if ( newGoalPanelIsOpen ) {
 		panelLink.innerHTML = '+ add a new goal...';
-		newGoalPanel.setAttribute('class', 'row hide');
+		newGoalPanel.setAttribute('class', 'row hide deep-orange lighten-4');
 		newGoalPanelIsOpen = false;
 	} else {
 		panelLink.innerHTML = '- add a new goal:';
-		newGoalPanel.setAttribute('class', 'row');
+		newGoalPanel.setAttribute('class', 'row deep-orange lighten-4');
 		newGoalPanelIsOpen = true;
 	}
 }
