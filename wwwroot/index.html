@@ -2,22 +2,46 @@
 
 <html>
 	<head>
-		<title>Couples Goals. AKA, Let's do this shit!</title>
-		<link href="styles/goals.css" rel="stylesheet" >
-	</head>
-	<body>
-		<h1>Goals</h1>
-		<div id="show-new-goal" class="action-panel"><a onclick="showNewGoalPanel()">+ Add a new goal.</a></div>
-		<div id="new-goal-panel" class="form-panel">
-			<input type="textfield" placeholder="enter new goal..." id="newGoalName"></input>
-			<button type="button" onclick="addGoal()">Add Goal</button>
-		</div>
+		<head>
+			<title>Couples Goals. AKA, Let's do this shit!</title>
+			<link href="styles/materialize.css" rel="stylesheet">
+		</head>
+		<body>
+	
+			<style>
+				input[type="checkbox"]:not(:checked) { opacity: 100; }
+				input[type="checkbox"]:checked { opacity: 100; }
+				a { cursor: pointer }
+			</style>
 
-			<section id="goalSection">
+			<div class="row">
+				<div class="col s2"></div>
+				<div class="col s10">
+					<h1>Goals</h1>
+				</div>
+			</div>
+
+			<div id="show-new-goal" class="row">
+				<div class="col s2"></div>
+				<div class="col s10">
+					<a onclick="showNewGoalPanel()" id="panel-link">+ Add a new goal.</a>
+				</div>
+			</div>
+
+			<div id="new-goal-panel" class="row hide">
+				<div class="col s2"></div>
+				<div class="col s10">
+					<input type="textfield" placeholder="enter new goal..." id="newGoalName"></input>
+					<button type="button" onclick="addGoal()">Add Goal</button>
+				</div>
+			</div>
+
+			<section class="container" id="goalSection">
 
 			</section>
-			
+
 			<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 			<script src="scripts/goals.js" ></script>
-	</body>
+
+		</body>
 </html>
