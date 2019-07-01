@@ -26,7 +26,6 @@ function renderGoals( JSONGoals ) {
 		var goalName = document.createElement('input');
 		goalName.type = 'textfield';
 		goalName.value = goal.name;
-		goalName.setAttribute('style', 'width: inherit');
 
 		var goalDelete = document.createElement('button');
 		goalDelete.type = 'button';

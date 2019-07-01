@@ -1,0 +1,21 @@
+.row {
+	margin-bottom: 0px;
+}
+
+#goalSection>div {
+	margin-top: 1.7em;
+}
+
+input[type="textfield"] {
+	width: inherit;
+}
+
+input[type="checkbox"]:not(:checked) { opacity: 100; }
+
+input[type="checkbox"]:checked { opacity: 100; }
+
+
+a { 
+	cursor: pointer;
+	color: #3e2723;
+}
