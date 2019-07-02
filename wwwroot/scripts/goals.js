@@ -51,6 +51,22 @@ function renderGoals( JSONGoals ) {
 	
 }
 
+function showNewGoalPanel() {
+
+	var newGoalPanel = document.getElementById('new-goal-panel');
+	var panelLink = document.getElementById('panel-link');
+
+	if ( newGoalPanelIsOpen ) {
+		panelLink.innerHTML = '+ add a new goal...';
+		newGoalPanel.setAttribute('class', 'row hide deep-orange lighten-4');
+		newGoalPanelIsOpen = false;
+	} else {
+		panelLink.innerHTML = '- add a new goal:';
+		newGoalPanel.setAttribute('class', 'row deep-orange lighten-4');
+		newGoalPanelIsOpen = true;
+	}
+}
+
 function addGoal() {
 	// get info from the newGoalPanel input
 	var newGoalName = document.getElementById('newGoalName').value;
@@ -76,28 +92,18 @@ function addGoal() {
 
 	// send the request
 	postRequest.send(stringGoal);
+	
+	// when the response is received
+	postRequest.onload = function() {
+		
+		showGoals();
 
-	showGoals();
-}
-
-function showNewGoalPanel() {
-
-	var newGoalPanel = document.getElementById('new-goal-panel');
-	var panelLink = document.getElementById('panel-link');
-
-	if ( newGoalPanelIsOpen ) {
-		panelLink.innerHTML = '+ add a new goal...';
-		newGoalPanel.setAttribute('class', 'row hide deep-orange lighten-4');
-		newGoalPanelIsOpen = false;
-	} else {
-		panelLink.innerHTML = '- add a new goal:';
-		newGoalPanel.setAttribute('class', 'row deep-orange lighten-4');
-		newGoalPanelIsOpen = true;
 	}
+	
 }
 
 function showGoals() {	// store a reference to the section element
-	var section = document.querySelector('section');
+	var section = document.querySelector('#goalSection');
 
 	// clear 'section'
 	section.innerHTML = ' ';
@@ -146,8 +152,42 @@ function deleteGoal( goalId ) {
 	// send the request
 	deleteRequest.send();
 
-	// reload all goals
-	showGoals();
+	deleteRequest.onload = function () {
+	
+		showGoals();
+	
+	}
+}
+
+function updateGoal( goalId ) {
+
+	// get a reference to the goal 'row'
+	var goal = document.querySelector('#' + goalId);
+
+	// store the url that will send us the JSON
+	var putRequestURL = 'api/goal/' + goalId;
+
+	// create an XMLHttpRequest object
+	var putRequest = new XMLHttpRequest();
+	
+	// use the request object to open the url using the HTTP GET method
+	putRequest.open( 'PUT', postRequestURL );
+
+	// set the content-type to JSON
+	putRequest.setRequestHeader('Content-Type', 'application/JSON');
+
+	// set the response type
+	//postRequest.responseType = 'json';
+
+	// send the request
+	postRequest.send(stringGoal);
+	
+	// when the response is received
+	postRequest.onload = function() {
+		
+		showGoals();
+		
+	}
 }
 
 showGoals();
