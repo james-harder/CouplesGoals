@@ -77,10 +77,10 @@ function showNewGoalPanel() {
 
 function addGoal() {
 	// get info from the newGoalPanel input
-	var newGoalName = document.getElementById('newGoalName').value;
+	var newGoalName = document.getElementById('newGoalName');
 
 	// create an object to POST via JSON
-	var newGoal = { 'name': newGoalName, 'isCompleted': false };
+	var newGoal = { 'name': newGoalName.value, 'isCompleted': false };
 	var stringGoal = JSON.stringify(newGoal);
 
 	// store the url that will send us the JSON
@@ -100,6 +100,10 @@ function addGoal() {
 
 	// send the request
 	postRequest.send(stringGoal);
+
+	// clear input
+	newGoalName.value = '';
+	newGoalName.focus();
 	
 	// when the response is received
 	postRequest.onload = function() {
