@@ -18,14 +18,22 @@ function renderGoals( JSONGoals ) {
 		gnDiv.className = 'col s10';
 
 		// goalCompleted -> checkbox, goalName -> textfield, goalDelete -> button
+
+		// materilize.css is weird about checkboxes, so this is complicated...
+		var cbLabel = document.createElement('label');
+		var cbSpan = document.createElement('span');
+		cbSpan.innerText = ' ';
 		var goalCompleted = document.createElement('input');
 		goalCompleted.type = 'checkbox';
 		goalCompleted.id = 'gc' + goal.goalId;
 		goalCompleted.checked = goal.isCompleted;
-
+		cbLabel.appendChild(goalCompleted);
+		cbLabel.appendChild(cbSpan);
+		
 		var goalName = document.createElement('input');
 		goalName.type = 'textfield';
 		goalName.value = goal.name;
+		//goalName.addEventListener('change', updateGoal( goal.goalId ));
 
 		var goalDelete = document.createElement('button');
 		goalDelete.type = 'button';
@@ -34,7 +42,7 @@ function renderGoals( JSONGoals ) {
 		goalDelete.setAttribute( 'onclick', 'deleteGoal(this.value)' );
 
 		// add elements to respective 'col' divs
-		gcDiv.appendChild(goalCompleted);
+		gcDiv.appendChild(cbLabel);
 		gnDiv.appendChild(goalName);
 		gdDiv.appendChild(goalDelete);
 
@@ -162,7 +170,11 @@ function deleteGoal( goalId ) {
 function updateGoal( goalId ) {
 
 	// get a reference to the goal 'row'
-	var goal = document.querySelector('#' + goalId);
+	var goal = document.getElementById(goalId);
+	var goalUpdate = {};
+	goalUpdate.name = goal.childNodes[1].childNodes[0].value;
+	goalUpdate.isCompleted = goal.childNodes[0].childNodes[0].checked;
+	var stringGoal = JSON.stringify(goalUpdate);
 
 	// store the url that will send us the JSON
 	var putRequestURL = 'api/goal/' + goalId;
@@ -171,7 +183,7 @@ function updateGoal( goalId ) {
 	var putRequest = new XMLHttpRequest();
 	
 	// use the request object to open the url using the HTTP GET method
-	putRequest.open( 'PUT', postRequestURL );
+	putRequest.open( 'PUT', putRequestURL );
 
 	// set the content-type to JSON
 	putRequest.setRequestHeader('Content-Type', 'application/JSON');
@@ -180,10 +192,10 @@ function updateGoal( goalId ) {
 	//postRequest.responseType = 'json';
 
 	// send the request
-	postRequest.send(stringGoal);
+	putRequest.send(stringGoal);
 	
 	// when the response is received
-	postRequest.onload = function() {
+	putRequest.onload = function() {
 		
 		showGoals();
 		
