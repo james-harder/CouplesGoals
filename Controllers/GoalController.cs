@@ -57,10 +57,10 @@ namespace CouplesGoals.api.Controllers {
         }
 
         //PUT: api/goal/Id
-        [HttpPut("{goalId}")]
-        public async Task<ActionResult<Goal>> PutGoal( int goalId, Goal goal ) {
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Goal>> PutGoal( int id, Goal goal ) {
 
-            if( goalId != goal.GoalId ) {
+            if( id != goal.GoalId ) {
 
                 return BadRequest();
 

@@ -33,7 +33,9 @@ function renderGoals( JSONGoals ) {
 		var goalName = document.createElement('input');
 		goalName.type = 'textfield';
 		goalName.value = goal.name;
-		//goalName.addEventListener('change', updateGoal( goal.goalId ));
+		goalName.id = 'gn' + goal.goalId;
+		goalName.addEventListener('change', updateGoal );
+		//goalName.setAttribute('onchange', 'console.log( goal.goalId )');
 
 		var goalDelete = document.createElement('button');
 		goalDelete.type = 'button';
@@ -121,7 +123,7 @@ function showGoals() {	// store a reference to the section element
 	section.innerHTML = ' ';
 
 	// store the url that will send us the JSON
-	var requestURL = 'api/goal/';
+	var requestURL = 'api/Goal/';
 
 	// create an XMLHttpRequest object
 	var request = new XMLHttpRequest();
@@ -171,13 +173,21 @@ function deleteGoal( goalId ) {
 	}
 }
 
-function updateGoal( goalId ) {
+function updateGoal( ) {
 
-	// get a reference to the goal 'row'
-	var goal = document.getElementById(goalId);
+	// this wont work for double digit goals...
+	var goalId = this.id[2];
+
+	// get data from goal row and save as new JSON object
+	var nameField = document.getElementById('gn' + goalId);
+	
+	var doneCheckBox = document.getElementById('gc'+goalId);
+
 	var goalUpdate = {};
-	goalUpdate.name = goal.childNodes[1].childNodes[0].value;
-	goalUpdate.isCompleted = goal.childNodes[0].childNodes[0].checked;
+	goalUpdate.goalId = goalId;
+	goalUpdate.name = nameField.value;
+	goalUpdate.isCompleted = doneCheckBox.checked;
+
 	var stringGoal = JSON.stringify(goalUpdate);
 
 	// store the url that will send us the JSON

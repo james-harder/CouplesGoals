@@ -24,10 +24,10 @@ namespace CouplesGoals.api
         public void ConfigureServices(IServiceCollection services)
         {
             // to use sqlite: (needs work...)
-            //services.AddDbContext<GoalContext>( options => options.UseSqlite("Data Source=CouplesGoalsDb.db") );
+            services.AddDbContext<GoalContext>( options => options.UseSqlite("Data Source=app.db") );
 
             // use in memory database
-            services.AddDbContext<GoalContext>( options => options.UseInMemoryDatabase("Goals") );
+            //services.AddDbContext<GoalContext>( options => options.UseInMemoryDatabase("Goals") );
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -48,7 +48,7 @@ namespace CouplesGoals.api
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseMvc(routes => { routes.MapRoute( name: "default", template: "{controller=home}/{action=Index}/{id?}"); });
         }
     }
 }
